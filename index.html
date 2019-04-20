@@ -5,6 +5,7 @@
             Employee Time Sheet
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./assets/css/reset.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
         <link rel="stylesheet" href="./assets/css/style.css" />
         <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
@@ -20,7 +21,7 @@
             </div>
             <div class="card">
                     <div class="card-body">
-                        Current Employees
+                        <h2>Current Employees</h2>
                         <table id="CurrentEmployees" class="table">
                                 <thead>
                                     <tr>
@@ -34,7 +35,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                    <th scope="row">Jane Doe</th>
+                                    <td scope="row">Jane Doe</td>
                                     <td>CFO</td>
                                     <td>Start date</td>
                                     <td>60</td>
@@ -42,7 +43,7 @@
                                     <td>2,040,000</td>
                                     </tr>
                                     <tr>
-                                    <th scope="row">2</th>
+                                    <td scope="row">2</td>
                                     <td>Jacob</td>
                                     <td>Thornton</td>
                                     <td>@fat</td>
@@ -73,7 +74,7 @@
                                   <label for="rate-input">Monthly Rate</label>
                                   <input type="text" class="form-control" id="rate-input"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" id="submit" class="btn btn-primary">Submit</button>
                               </form>
         
                 </div>  

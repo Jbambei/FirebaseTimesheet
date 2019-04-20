@@ -1,0 +1,38 @@
+#header{
+    background-color: darkslategray;
+    text-align: center;
+    padding: 2%;
+}
+h1{
+    color: white;
+}
+
+h3{
+    text-align: center;
+    color: beige;
+}
+
+h2{
+    text-align: center;
+    color: darkslategray;
+}
+body{
+    background-color: whitesmoke;
+}
+.card{
+    margin: 2% 10% 2% 10%;
+    padding: 2%;
+}
+
+thead {
+    background-color: darkslategray;
+    text-align: center;
+    padding: 2%;
+    color: white;
+
+}
+
+#submit {
+    background-color: darkslategray;
+    border: none;
+}
