@@ -39,47 +39,34 @@ $("#submit").on("click", function(event) {
     frequency = $("#frequency-input").val().trim();
     rate = $("#rate-input").val().trim();
 
-    database.ref().push({
+    var newTrain = {
         name: name,
         destination: destination,
         frequency: frequency,
         rate: rate,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
+    }
 
 
+    datebase.ref().push(newTrain)
     //synatx error somewhere
+    //clear inputs
     $("#name-input").val("")
-    $("#destination-input").val().trim()
-    $("frequency-input").val(""
+    $("#destination-input").val("").trim()
+    $("frequency-input").val("")
     $("#rate-input").val("")
-    
     });
-    
-    
 
 });
+
 database.ref().on("child_added", function(snapshot) {
-    // Log everything that's coming out of snapshot
-    console.log(snapshot.val());
+    // Log everything that's coming out of snapsho
     console.log(snapshot.val().name);
-    console.log(snapshot.val().role);
-    console.log(snapshot.val().rate);
-    console.log(snapshot.val().date);
-    //  console.log(snapshot).val().dateAdded;
-    var newRow = $("<tr>");
-    var namedata = $("<td>").text(snapshot.val().name);
-    var roledata = $("<td>").text(snapshot.val().role);
-    var ratedata = $("<td>").text(snapshot.val().rate);
-    var nothing = $("<td>");
-    var datedata = $("<td>").text(snapshot.val().date);
-    newRow.append(namedata, roledata, ratedata, nothing, datedata);
-    $("tbody").append(newRow);
-
-}, function(errorObject) {
-    console.log("Errors handled: " + errorObject.code);
-});
-
-
+    console.log(snapshot.val().destination);
+    var name = childSnapshot.val().name
+    var destination = childSnapshot.val().destination
+    var frequency = childSnapshot.val().frequency
+    var firstTime = childSnapshot.val().firstTime
 
 // First Time (pushed back 1 year to make sure it comes before current time)
 var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
@@ -104,3 +91,19 @@ console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 // Next Train
 var nextTrain = moment().add(tMinutesTillTrain, "minutes");
 console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+
+var newEntries = $("<tr").append(
+    $("<td>").text(name)
+    $("<td>").text(destination)
+    $("<td>").text(frequency)
+    $("<td>").text(nextTrain)
+    $("<td>").text(tMinutesTillTrain)
+);
+
+$("tbody").append(newRow);
+
+})
+
+setInterval(function() {
+    window.location.reload
+}
