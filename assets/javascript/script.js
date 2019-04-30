@@ -22,9 +22,9 @@ var config = {
 var database = firebase.database();
 // Initial Values
 var name = "";
-var role = "";
+var destination = "";
 var rate = 0;
-var date = "";
+var frequency = "";
 
 // Capture Button Click
 $("#submit").on("click", function(event) {
@@ -48,14 +48,14 @@ $("#submit").on("click", function(event) {
     }
 
 
-    datebase.ref().push(newTrain)
+    datebase.ref().push(newTrain) // ^
     //synatx error somewhere
     //clear inputs
     $("#name-input").val("")
     $("#destination-input").val("").trim()
     $("frequency-input").val("")
     $("#rate-input").val("")
-    });
+
 
 });
 
@@ -92,6 +92,7 @@ console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 var nextTrain = moment().add(tMinutesTillTrain, "minutes");
 console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
+//syntax error. Function related?
 var newEntries = $("<tr").append(
     $("<td>").text(name)
     $("<td>").text(destination)
@@ -105,5 +106,5 @@ $("tbody").append(newRow);
 })
 
 setInterval(function() {
-    window.location.reload
-}
+    window.location.reload();
+}, 60000);
