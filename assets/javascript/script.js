@@ -94,11 +94,11 @@ console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
 //syntax error. Function related?
 var newEntries = $("<tr").append(
-    $("<td>").text(name)
-    $("<td>").text(destination)
-    $("<td>").text(frequency)
-    $("<td>").text(nextTrain)
-    $("<td>").text(tMinutesTillTrain)
+    $("<td>").text(name),
+    $("<td>").text(destination),
+    $("<td>").text(frequency),
+    $("<td>").text(nextTrain),
+    $("<td>").text(tMinutesTillTrain),
 );
 
 $("tbody").append(newRow);
