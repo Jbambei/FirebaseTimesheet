@@ -9,15 +9,16 @@
 // rate-display
 
 // Initialize Firebase
+// Initialize Firebase
 var config = {
-    apiKey: "AIzaSyAnK5jEw1jkRK7o-gghAtO18TZB33fJAtg",
-    authDomain: "fir-timesheet-33d91.firebaseapp.com",
-    databaseURL: "https://fir-timesheet-33d91.firebaseio.com",
-    projectId: "fir-timesheet-33d91",
-    storageBucket: "fir-timesheet-33d91.appspot.com",
-    messagingSenderId: "164768456674"
-};
-firebase.initializeApp(config);
+    apiKey: "AIzaSyB7QxmTZdkAVZQIQVBDuDAE9sGkewF5_q4",
+    authDomain: "trainhomework-26fdb.firebaseapp.com",
+    databaseURL: "https://trainhomework-26fdb.firebaseio.com",
+    projectId: "trainhomework-26fdb",
+    storageBucket: "trainhomework-26fdb.appspot.com",
+    messagingSenderId: "569565210312"
+  };
+  firebase.initializeApp(config);
 var database = firebase.database();
 // Initial Values
 var name = "";
@@ -45,8 +46,39 @@ $("#submit").on("click", function(event) {
         date: date,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
 
+
+    //synatx error somewhere
+    $("#name-input").val("")
+    $("#destination-input").val().trim()
+    $("frequency-input").val(""
+    $("#rate-input").val("")
     });
-    //console.log(dataAdded);
+    
+    // First Time (pushed back 1 year to make sure it comes before current time)
+    var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
+    console.log(firstTimeConverted);
+
+    // Current Time
+    var currentTime = moment();
+    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
+    // Difference between the times
+    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+    console.log("DIFFERENCE IN TIME: " + diffTime);
+
+    // Time apart (remainder)
+    var tRemainder = diffTime % tFrequency;
+    console.log(tRemainder);
+
+    // Minute Until Train
+    var tMinutesTillTrain = tFrequency - tRemainder;
+    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
+    // Next Train
+    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+
+
 });
 database.ref().on("child_added", function(snapshot) {
     // Log everything that's coming out of snapshot
@@ -69,4 +101,28 @@ database.ref().on("child_added", function(snapshot) {
     console.log("Errors handled: " + errorObject.code);
 });
 
-//dataRef.ref().ordrByChile("dateAdded").limitToLast(1).on("child_added",function(snapshot)
+
+
+// First Time (pushed back 1 year to make sure it comes before current time)
+var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
+console.log(firstTimeConverted);
+
+// Current Time
+var currentTime = moment();
+console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
+// Difference between the times
+var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+console.log("DIFFERENCE IN TIME: " + diffTime);
+
+// Time apart (remainder)
+var tRemainder = diffTime % tFrequency;
+console.log(tRemainder);
+
+// Minute Until Train
+var tMinutesTillTrain = tFrequency - tRemainder;
+console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
+// Next Train
+var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));

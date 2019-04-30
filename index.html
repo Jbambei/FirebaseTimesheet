@@ -2,7 +2,7 @@
 <html lan="us">
     <head>
         <title>
-            Employee Time Sheet
+            Train Time
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./assets/css/reset.css" />
@@ -15,35 +15,30 @@
     <body>
         <div id ="header">
                 <h1>
-                    Employee Management Data
+                    Train Schedule
                 </h1>
-                <h3>
-                    A comprehensive Directory of Employee Billable Hours
-                </h3>
             </div>
             <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                        <h2>Current Employees</h2>
+                        <h2>Current Schedule</h2>
                         <table id="currentEmployees" class="table">
                                 <thead>
                                     <tr>
-                                    <th scope="col">Employee Name</th>
-                                    <th scope="col">Role</th>
-                                    <th scope="col">Start Date</th>
-                                    <th scope="col">Months Worked</th>
-                                    <th scope="col">Monthly Rate ($)</th>
-                                    <th scope="col">Total Billed ($)</th>
+                                    <th scope="col">Train Name</th>
+                                    <th scope="col">Destination</th>
+                                    <th scope="col">Frequency</th>
+                                    <th scope="col">Next Arrival</th>
+                                    <th scope="col">Minutes away</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tableUpdate">
                                     <tr>
-                                    <td scope="row">Jane Doe</td>
-                                    <td>CFO</td>
-                                    <td>Start date</td>
-                                    <td>60</td>
-                                    <td>34,000</td>
-                                    <td>2,040,000</td>
+                                    <td scope="row">Train express</td>
+                                    <td>South Pole </td>
+                                    <td>30</td>
+                                    <td>15</td>
+                                    <td>15</td>
                                     </tr>
                                 </tbody>
                                 </table>
@@ -55,19 +50,19 @@
                      <div class="card-body">
                             <form>
                                     <div class="form-group">
-                                        <label for="name-input">Employee Name</label>
+                                        <label for="name-input">Train Name</label>
                                         <input type="text" class="form-control" id="name-input" placeholder="John Doe">
                                     </div>
                                     <div class="form-group">
-                                        <label for="role-input">Role</label>
+                                        <label for="role-input">Destination</label>
                                         <input type="text" class="form-control" id="role-input">
                                     </div>
                                     <div class="form-group">
-                                        <label for="date-input">Start Date (MM/DD/YYYY)</label>
-                                        <input type="text" class="form-control" id="date-input" placeholder="01/09/2019">
+                                        <label for="date-input">Frequency</label>
+                                        <input type="text" class="form-control" id="date-input" placeholder="60">
                                     </div>
                                 <div class="form-group">
-                                  <label for="rate-input">Monthly Rate</label>
+                                  <label for="rate-input">Next Arrival</label>
                                   <input type="text" class="form-control" id="rate-input"></textarea>
                                 </div>
                                 <button type="submit" id="submit" class="btn btn-primary">Submit</button>
